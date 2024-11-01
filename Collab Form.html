@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Collaboration Form</title>
+</head>
+
+<section id="contact">
+    <h1>Collaboration Form</h1>
+    <div class="contact main-container">
+        <div class="logo">
+            <a href="c:\Users\anggita\OneDrive\Dokumen\UNESA\Semester 3\2. PEMROGRAMAN WEB\UTS\Portofolio PR_186_Anggita Allaudia Suradjad.html" class="home-link">
+                <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m10.978 14.999v3.251c0 .412-.335.75-.752.75-.188 0-.375-.071-.518-.206-1.775-1.685-4.945-4.692-6.396-6.069-.2-.189-.312-.452-.312-.725 0-.274.112-.536.312-.725 1.451-1.377 4.621-4.385 6.396-6.068.143-.136.33-.207.518-.207.417 0 .752.337.752.75v3.251h9.02c.531 0 1.002.47 1.002 1v3.998c0 .53-.471 1-1.002 1z" fill-rule="nonzero"/></svg>
+            </a>
+        </div>
+        
+        <form class="contact-form" action="https://formspree.io/f/xwpklvoz" method="POST">
+            <div class="gap"></div>
+            <label for="name" class="required">Name</label>
+            <div>
+                <input type="text" placeholder="Nama Lengkap" name="name" required>
+            </div>
+            
+            <div class="gap"></div>
+            <label for="email" class="required">Email</label>
+            <div>
+                <input type="email" placeholder="anggita@gmail.com" name="email" required>
+            </div>
+
+            <div class="gap"></div>
+            <label for="phone" class="required">Phone</label>
+            <div>
+                <input type="text" placeholder="08xxxxxxxxxx" name="phone" required>
+            </div>
+
+            <div class="gap"></div>
+            <label for="event-theme" class="required">Event Theme</label>
+            <div>
+                <input type="text" placeholder="Event Theme" name="event-theme" required>
+            </div>
+
+            <div class="gap"></div>
+            <label for="event" class="required">What Kind of Event?</label>
+            <div>
+                <select id="event" name="event" required>
+                    <option value="">Select an event</option>
+                    <option value="event1">Webinar</option>
+                    <option value="event2">Workshop</option>
+                    <option value="event3">Kompetisi</option>
+                </select>
+            </div>
+
+            <div class="gap"></div>
+            <label for="event-date" class="required">Event Date</label>
+            <div>
+                <input type="date" id="event_date" name="event-date" required>
+            </div>
+
+            <div class="gap"></div>
+            <label for="paid-unpaid" class="required">Paid/Unpaid</label>
+            <div>
+                <select id="paid_unpaid" name="paid_unpaid" required>
+                    <option value="">Select an option</option>
+                    <option value="paid">Paid</option>
+                    <option value="unpaid">Unpaid</option>
+                </select>
+            </div>
+
+            <div class="gap"></div>
+            <label for="document" class="required">Document (PDF only)</label>
+            <div>
+                <input type='file' id='document' name='document' accept='application/pdf' required />
+            </div>
+
+            <div class="gap"></div>
+            <label for='confirmation_date' class='required'>Latest Confirmation Date</label>
+            <div>
+                <input type='date' id='confirmation_date' name='confirmation_date' required />
+            </div>
+
+            <div class="gap"></div>
+            <div>
+                <button class="btn-submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</section>
+
+
+<style>
+    body { 
+        font-family: "Roboto", sans-serif;
+        background-color: #f1f1f1;
+        padding: 20px 200px;
+    }
+
+    h1 {
+        text-align: center;
+        color: #6042d7;
+    }
+
+    form {
+        background-color: white;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        padding-left: 2.5rem;
+        padding-right: 2.5rem;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .logo svg {
+        fill: #6042d7;
+        width: 45px;
+        height: 45px;
+        padding-left: 1rem;
+        padding-bottom: 0.7rem;
+    }
+
+    .logo svg:hover {
+        fill: black;
+    }
+    
+    label {
+        display: block;
+        font-weight: bold;
+    }
+    
+    .gap {
+        padding-bottom: 1.7rem;
+    }
+    
+    .required:after {
+        content: "*";
+        color: red;
+    }
+    
+    input, select, textarea, .btn-submit {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        box-sizing: border-box;
+    }
+    
+    input[type=file] {
+        padding: 8px 20px;
+    }
+    
+    .btn-submit {
+        background-color: #6042d7;
+        color: white;
+        padding: 14px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    
+    .btn-submit:hover {
+        color: white;
+        background-color: black;
+    }
+</style>
+
+<script>
+    const form = document.querySelector('.collab-form');
+    const popup = document.getElementById('popup');
+    const backButton = document.getElementById('back-button');
+    
+    window.onbeforeunload= () => {
+        for (const form of document.getElementsByTagName("form")) {
+            form.reset();
+        }
+    };
+</script>
